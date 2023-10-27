@@ -5,9 +5,9 @@ import json
 
 
 headers_gen = Headers(os='win', browser='chrome')
-
+PARAMS = {"text": "Python"+"django"+"flask"}
 vacancies_page = requests.get('https://spb.hh.ru/search/vacancy?text=python&area=1&area=2',
-                              headers=headers_gen.generate())
+                              headers=headers_gen.generate(), params=PARAMS)
 
 vacancies_page_html = vacancies_page.text
 vacancies_soup = BeautifulSoup(vacancies_page_html, 'lxml')
